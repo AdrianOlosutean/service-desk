@@ -1,0 +1,14 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand">
+                <strong>Service Desk</strong>
+            </a>
+        </div>
+        <div ng-repeat="element in navElements">
+            <a class="navbar-brand" ui-sref="{{element.state}}">{{element.name}}</a>
+        </div>
+
+        <a ng-show="isLoggedIn" ng-click="logout()" class="navbar-brand navbar-right" ui-sref="main">Logout</a>
+    </div>
+</div>

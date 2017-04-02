@@ -1,0 +1,62 @@
+<div ng-controller="adminEmployeesController">
+    <div class="container">
+        <h3>Employees</h3>
+    </div>
+
+    <div class="container">
+        <h4>Insert</h4>
+        <h5>Username</h5>
+        <input ng-model="newUsername" type="text" class="form-control input-sm">
+        <h5>Password</h5>
+        <input ng-model="newPassword" type="text" class="form-control input-sm">
+        <br>
+        <a ng-click="insertEmployee()" type="button" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>Insert
+        </a>
+        <div ng-show="insertSuccess === 2" class="alert alert-success">
+            <strong>Success</strong>
+        </div>
+        <div ng-show="insertSuccess === 1" class="alert alert-danger">
+            <strong>Invalid</strong>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="panel panel-default">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td><input ng-model="employee.username" type="text" class="form-control input-sm" readonly></td>
+                    <td><input ng-model="employee.password" type="text" class="form-control input-sm"></td>
+                    <td>
+                        <button ng-click="deleteEmployee($index)" type="button" class="btn btn-danger"><span
+                                class="glyphicon glyphicon-remove-circle"></span>Delete
+                        </button>
+                    </td>
+                    <td>
+                        <button ng-click="updateEmployee($index)" type="button" class="btn btn-default"><span
+                                class="glyphicon glyphicon-ok"></span>Update
+                        </button>
+                    </td>
+                    <td>
+                        <button ng-click="logs($index)" ui-sref="admin.report" type="button" class="btn btn-info"><span
+                                class="glyphicon glyphicon-ok"></span>Logs
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+
+</div>

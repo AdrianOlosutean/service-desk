@@ -1,0 +1,36 @@
+<div ng-controller="mainController">
+    <div ng-include="nav"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-login">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form ng-submit="login(user,pass)" style="display: block;">
+                                    <h2>LOGIN</h2>
+                                    <div class="form-group">
+                                        <input ng-model="user" type="text" tabindex="1"
+                                               class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input ng-model="pass" type="password" tabindex="2"
+                                               class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="col-xs-6 form-group pull-right">
+                                        <input  type="submit" name="login-submit" tabindex="4"
+                                               class="form-control btn btn-login" value="Log In">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p ng-show="invalidCredentials">Invalid Credentials</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

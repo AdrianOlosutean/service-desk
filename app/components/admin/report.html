@@ -1,0 +1,36 @@
+<div ng-controller="adminReportController" class="container">
+
+    <div class="container">
+        <h5>From</h5>
+        <input ng-model="from" type="text" class="form-control input-sm" style="max-width:15%;">
+        <h5>To</h5>
+        <input ng-model="to" type="text" class="form-control input-sm" style="max-width:15%;">
+        <br>
+        <a ng-click="report()" class="btn btn-success">
+            Report
+        </a>
+    </div>
+    <br>
+
+    <div class="panel panel-default">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Employee</th>
+                <th>Description</th>
+                <th>Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="log in logs">
+                <td><input ng-model="log.activity" type="text" class="form-control input-sm" readonly></td>
+                <td><input ng-model="log.employee" type="text" class="form-control input-sm" readonly></td>
+                <td><input ng-model="log.description" type="text" class="form-control input-sm" readonly></td>
+                <td><input ng-model="log.time" type="text" class="form-control input-sm" readonly></td>
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+</div>

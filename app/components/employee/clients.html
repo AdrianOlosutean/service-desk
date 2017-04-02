@@ -1,0 +1,105 @@
+<div ng-controller="employeeClientsController">
+
+    <div class="container">
+        <h1>Insert</h1>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>SSN</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Identity Card Number</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input ng-model="newclient.ssn" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="newclient.firstname" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="newclient.lastname" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="newclient.idendityCardNumber" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="newclient.address" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="newclient.email" type="text" class="form-control input-sm"></td>
+                    <td><a ng-click="insertClient(newclient)" class="btn btn-success pull-right">
+                        <span class="glyphicon glyphicon-plus"></span>Insert
+                    </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div ng-show="insertSuccess === 1" class="alert alert-danger">
+            <strong>Invalid Data</strong>
+        </div>
+        <div ng-show="insertSuccess === 2" class="alert alert-success">
+            <strong>Success</strong>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Clients</h1>
+    </div>
+    <div class="container">
+        <div ng-show="updateDeleteSuccess === 1" class="alert alert-danger">
+            <strong>Invalid Data</strong>
+        </div>
+        <div ng-show="updateDeleteSuccess === 2" class="alert alert-success">
+            <strong>Success</strong>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>SSN</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Identity Card Number</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="client in clients">
+                    <td><input ng-model="client.ssn" type="text" class="form-control input-sm" readonly></td>
+                    <td><input ng-model="client.firstname" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="client.lastname" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="client.idendityCardNumber" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="client.address" type="text" class="form-control input-sm"></td>
+                    <td><input ng-model="client.email" type="text" class="form-control input-sm"></td>
+                    <td>
+                        <button ng-click="removeClient($index)" type="button" class="btn btn-danger btn-xs"><span
+                                class="glyphicon glyphicon-remove-circle"></span>Delete
+                        </button>
+                    </td>
+                    <td>
+                        <button ng-click="updateClient($index)" type="button" class="btn btn-default btn-xs"><span
+                                class="glyphicon glyphicon-ok"></span>Update
+                        </button>
+                    </td>
+                    <td>
+                        <button ng-click="gotoAccounts($index)" ui-sref="employee.accounts" type="button"
+                                class="btn btn-info btn-xs"><span></span>Accounts
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+
+</div>
